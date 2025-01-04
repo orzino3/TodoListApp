@@ -1,0 +1,88 @@
+.reminder-item-container {
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #f0f0f0, #d6d6d6);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    height: auto;
+    width: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.reminder-item-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.item-desc {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #333;
+}
+
+.item-todo {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.item-before-date {
+    font-size: 1rem;
+    color: #777;
+    margin: 10px 0 20px;
+}
+
+.item-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.item-button-edit {
+    background: #007bff;
+    color: white;
+}
+
+.item-button-edit:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.item-button-delete {
+    background: #dc3545;
+    color: white;
+}
+
+.item-button-delete:hover {
+    background: #b02a37;
+    transform: scale(1.05);
+}
+
+.item-button-done {
+    background: #28a745;
+    color: white;
+}
+
+.item-button-done:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
