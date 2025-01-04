@@ -81,6 +81,7 @@ export default function TaskForm() {
                         placeholder="Enter task name"
                         value={taskName}
                         onChange={taskNameChangeHandler}
+                        required={true}
                     />
                     <label className="task-desc-label">Task Description</label>
                     <input
@@ -89,13 +90,15 @@ export default function TaskForm() {
                         placeholder="Enter task description"
                         value={taskDesc}
                         onChange={taskDescChangeHandler}
+                        required={true}
                     />
-                    <label className="task-date-label">Need to be done before:</label>
+                    <label className="task-date-label">Due Date</label>
                     <input
                         type="date"
                         className="task-date"
                         value={taskBeforeDate}
                         onChange={taskBeforeDateChangeHandler}
+                        required={true}
                     />
                     <button type="submit" className="task-form-button">
                         Add Task

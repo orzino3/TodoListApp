@@ -14,7 +14,7 @@ export default function Item(props) {
                 console.log("Task removed successfully");
                 Swal.fire({
                     title: 'Success!',
-                    text: `Task ${uniqueKey} set as Done successfully!`,
+                    text: `Task: ${uniqueKey} set as Done successfully!`,
                     icon: 'success',
                     confirmButtonText: 'OK'
                 }).then((result) => {
