@@ -1,23 +1,39 @@
 import './styles/Item.css'
 import { getDatabase, ref, remove } from "firebase/database";
+import Swal from 'sweetalert2';
 
 
 export default function Item(props) {
 
     const removeDoneTask = async (uniqueKey) => {
-
-        const db = await  getDatabase()
-        const dbRef = ref(db,"tasks/" + uniqueKey)
+        const db = await getDatabase();
+        const dbRef = ref(db, "tasks/" + uniqueKey);
 
         remove(dbRef)
-            .then(() =>{
-                console.log("Task removed successfully")
-                window.location.reload()
+            .then(() => {
+                console.log("Task removed successfully");
+                Swal.fire({
+                    title: 'Success!',
+                    text: `Task ${uniqueKey} set as Done successfully!`,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.reload();
+                    }
+                });
             })
             .catch((error) => {
-                console.log("Error removing task", error.message)
-            })
+                console.log("Error removing task", error.message);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Failed to remove task. Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            });
     }
+
 
     return (
         <div className={"reminder-item-container"}>

@@ -4,6 +4,7 @@ import "./styles/Task.css";
 import database from './FirebaseDB';
 import { ref, set } from 'firebase/database';
 import {useNavigate} from "react-router-dom";
+import Swal from 'sweetalert2';
 
 export default function TaskForm() {
     const [taskName, setTaskName] = useState("");
@@ -32,21 +33,29 @@ export default function TaskForm() {
             name: taskName,
             description: taskDesc,
             beforeDate: taskBeforeDate,
-
         }
-
 
         const uniqueKey = task.name;
 
-        // שליחת הנתונים
         set(ref(database, 'tasks/' + uniqueKey), task)
             .then(() => {
                 console.log("Data sent successfully!");
+                Swal.fire({
+                    title: 'Success!',
+                    text: `Task ${task.name} added successfully!`,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
             })
             .catch((error) => {
                 console.error("Error sending data:", error);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Failed to add task. Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             });
-
 
         console.log(task);
 
@@ -94,9 +103,7 @@ export default function TaskForm() {
                 </form>
             </div>
 
-            <button className={"btn btn-danger redirect-to-taskpage"} onClick={redirectToTaskPage}>Go to Task</button>
-
-
+            <button className={"btn btn-danger redirect-to-taskpage"} onClick={redirectToTaskPage}>Go to Tasks Page</button>
         </div>
     );
 }
