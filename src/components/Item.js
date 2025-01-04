@@ -27,7 +27,7 @@ export default function Item(props) {
                 console.log("Error removing task", error.message);
                 Swal.fire({
                     title: 'Error!',
-                    text: 'Failed to remove task. Please try again.',
+                    text: `Failed to remove task: ${uniqueKey}. Please try again.`,
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });

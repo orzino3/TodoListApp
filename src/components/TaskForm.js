@@ -42,7 +42,7 @@ export default function TaskForm() {
                 console.log("Data sent successfully!");
                 Swal.fire({
                     title: 'Success!',
-                    text: `Task ${task.name} added successfully!`,
+                    text: `Task: ${task.name} added successfully!`,
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
@@ -51,7 +51,7 @@ export default function TaskForm() {
                 console.error("Error sending data:", error);
                 Swal.fire({
                     title: 'Error!',
-                    text: 'Failed to add task. Please try again.',
+                    text: `Failed to add task: ${task.name}. Please try again.`,
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
